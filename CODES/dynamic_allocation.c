@@ -1,11 +1,44 @@
+// This code is for dynamic memory allocation in C
 #include <stdio.h>
 #include <stdlib.h>
+
 int main()
 {
-    int num1=24, num2=6 , res, *ptr;
+    int n;
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
 
-    ptr = malloc(4* sizeof(int));
-    res = num1+num2;
-    printf("The result is %d", res) ;
-    
+    // Dynamically allocate memory using malloc()
+    int *arr = (int *)malloc(n * sizeof(int));
+
+    // Check if the memory has been successfully allocated by malloc or not
+    if (arr == NULL)
+    {
+        printf("Memory not allocated.\n");
+        exit(0);
+    }
+    else
+    {
+        // Memory has been successfully allocated
+        printf("Memory successfully allocated using malloc.\n");
+
+        // Get the elements of the array
+        for (int i = 0; i < n; ++i)
+        {
+            arr[i] = i + 1;
+        }
+
+        // Print the elements of the array
+        printf("The elements of the array are: ");
+        for (int i = 0; i < n; ++i)
+        {
+            printf("%d ", arr[i]);
+        }
+    }
+
+    // Free the allocated memory
+    free(arr);
+    printf("\nMemory successfully freed.\n");
+
+    return 0;
 }
