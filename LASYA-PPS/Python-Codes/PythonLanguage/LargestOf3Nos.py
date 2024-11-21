@@ -24,3 +24,8 @@ else:
         print("The second largest number is: ", x)
     else:
         print("The second largest number is: ", y)
+
+        if x == y == z:
+            print("All the numbers are equal")
+        elif x == y:
+                print("The first and second numbers are equal")
